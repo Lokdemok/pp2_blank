@@ -29,8 +29,8 @@ void CBank::UpdateClientBalance(CBankClient &client, int value)
 		<< " and initiates setting total balance to " << totalBalance
 		<< ". Must be: " << GetTotalBalance() + value << "." << std::endl;
 
-	// Check correctness of transaction through actual total balance
-	if (totalBalance != GetTotalBalance() + value) {
+	if (totalBalance < 0) 
+	{
 		std::cout << "! ERROR !" << std::endl;
 	}
 
@@ -51,5 +51,5 @@ void CBank::SetTotalBalance(int value)
 
 void CBank::SomeLongOperations()
 {
-	// TODO
+	Sleep(200);
 }
